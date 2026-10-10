@@ -59,8 +59,15 @@ function EventCard(e) {
 export default function App() {
   return (
     <>
+      <nav className="topbar">
+        <a href="#"><img src="logo.png" alt="Kolmården Run Club" /></a>
+        <div>
+          <a href="#event">Event</a>
+          <a href={FB_URL} target="_blank" rel="noreferrer">Facebook</a>
+        </div>
+      </nav>
+
       <header className="hero">
-        <img className="logo" src="logo.png" alt="Kolmården Run Club" />
         <h1>Spring med oss i Kolmården</h1>
         <p>Ingen anmälan, ingen kostnad, inget tempo att leva upp till. Bara kom.</p>
         <a className="btn" href="#event">Se kommande löprundor</a>

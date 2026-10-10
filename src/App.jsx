@@ -56,41 +56,6 @@ function EventCard(e) {
   )
 }
 
-// Fotot + effekter i fotots egna koordinater (1889×833), så de följer med vid zoom/beskärning.
-const sparkles = [
-  [1296, 338, 0], [1305, 352, 1.1], [1290, 366, 0.4], [1310, 380, 1.7],
-  [1298, 395, 0.8], [1286, 408, 2.2], [1312, 418, 1.4], [1300, 428, 0.2],
-]
-
-function HeroBg() {
-  return (
-    <svg className="hero-bg" viewBox="0 0 1889 833" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-      <defs>
-        <radialGradient id="glow">
-          <stop offset="0" stopColor="#fff6d8" stopOpacity=".9" />
-          <stop offset=".35" stopColor="#ffc970" stopOpacity=".45" />
-          <stop offset="1" stopColor="#ff9a4d" stopOpacity="0" />
-        </radialGradient>
-        <radialGradient id="haze">
-          <stop offset="0" stopColor="#ffe2c4" stopOpacity="1" />
-          <stop offset="1" stopColor="#ffe2c4" stopOpacity="0" />
-        </radialGradient>
-      </defs>
-      <image href="hero.jpg" width="1889" height="833" />
-      <g className="clouds" fill="url(#haze)">
-        <ellipse cx="300" cy="90" rx="300" ry="40" />
-        <ellipse cx="900" cy="60" rx="360" ry="36" />
-      </g>
-      <circle className="sun-glow" cx="1300" cy="255" r="150" fill="url(#glow)" />
-      <g fill="#fff3d0">
-        {sparkles.map(([x, y, delay]) => (
-          <ellipse key={y} className="sparkle" cx={x} cy={y} rx="9" ry="2" style={{ animationDelay: `${delay}s` }} />
-        ))}
-      </g>
-    </svg>
-  )
-}
-
 export default function App() {
   return (
     <>
@@ -103,7 +68,6 @@ export default function App() {
       </nav>
 
       <header className="hero">
-        <HeroBg />
         <h1>Spring med oss i Kolmården</h1>
         <p>Ingen anmälan, ingen kostnad, inget tempo att leva upp till. Bara kom.</p>
         <a className="btn" href="#event">Se kommande löprundor</a>

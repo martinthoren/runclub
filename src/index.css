@@ -41,9 +41,6 @@ img { max-width: 100%; display: block; }
   from { transform: scale(1) translateX(0); }
   to { transform: scale(1.12) translateX(-2%); }
 }
-@media (prefers-reduced-motion: reduce) {
-  .hero::before { animation: none; }
-}
 .hero h1 { font-weight: 800; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.1; max-width: 12ch; margin: 0 0 .75rem; }
 .hero .btn { background: var(--sun); color: var(--green); }
 
@@ -95,5 +92,14 @@ footer { background: var(--green); color: var(--cream); text-align: center; padd
 footer a { color: var(--sun); }
 
 @media (max-width: 640px) {
-  .hero::before { background-position: 85% center; }
+  .hero::before { animation-name: pan; animation-duration: 18s; }
+}
+/* Mobil: bilden är mycket bredare än skärmen, så panorera i sidled i stället för små zoomar. */
+@keyframes pan {
+  from { background-position: 60% center; transform: scale(1.05); }
+  to { background-position: 95% center; transform: scale(1.15); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before { animation: none; }
 }

@@ -16,7 +16,7 @@ const icons = {
 const facts = [
   ['calendar', 'Dag', 'Varje tisdag'],
   ['clock', 'Tid', 'Kl. 19.00'],
-  ['pin', 'Samling', <a href={MAPS_URL} target="_blank" rel="noreferrer">Hyttans lekplats</a>],
+  ['pin', 'Samling', <a key="maps" href={MAPS_URL} target="_blank" rel="noreferrer">Hyttans lekplats</a>],
   ['shoe', 'Vi springer', 'Ca 5 km i lugnt tempo', 'förslagsvis 7.00–8.00 min/km'],
   ['people', 'Kostnad', '0 kr – alla är välkomna!'],
 ]

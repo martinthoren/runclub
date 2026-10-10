@@ -77,3 +77,7 @@ h2 { color: var(--green); font-weight: 800; font-size: 1.8rem; margin: 0 0 1.5re
 
 footer { background: var(--green); color: var(--cream); text-align: center; padding: 2rem 1rem; }
 footer a { color: var(--sun); }
+
+@media (max-width: 640px) {
+  .hero { background-position: center, 85% center; }
+}

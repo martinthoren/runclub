@@ -1,7 +1,7 @@
 // ponytail: Facebook har stängt API:t för gruppers event, så listan underhålls för hand i events.json.
 import allEvents from './events.json'
 
-const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Hyttans+lekplats+Kolm%C3%A5rden'
+const MAPS_URL = 'https://maps.app.goo.gl/nqU7YUrb3cFCYk9N6'
 const FB_URL = 'https://www.facebook.com/groups/1597119361540528'
 
 // Ikoner som på flygbladet (linjeikoner, 24×24).

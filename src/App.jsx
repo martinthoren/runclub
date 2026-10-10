@@ -3,11 +3,21 @@ import allEvents from './events.json'
 
 const FB_URL = 'https://www.facebook.com/groups/1597119361540528'
 
+// Ikoner som på flygbladet (linjeikoner, 24×24).
+const icons = {
+  calendar: <><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01" /></>,
+  clock: <><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></>,
+  pin: <><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></>,
+  shoe: <path d="M2 18h20v-2.2a2 2 0 0 0-1.5-1.9l-5.6-1.5-3.4-5-2.6 1.4L7 7.5 2.5 11ZM2 15.5h20M10 11l1.5-.8M11.5 13l1.5-.8" />,
+  people: <><circle cx="9" cy="7" r="4" /><path d="M2 21v-2a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v2M16 3.1a4 4 0 0 1 0 7.8M22 21v-2a4 4 0 0 0-3-3.9" /></>,
+}
+
 const facts = [
-  ['När', 'Varje tisdag kl. 19.00'],
-  ['Var', 'Hyttans lekplats'],
-  ['Distans', 'Ca 5 km i lugnt tempo, ~7–8 min/km'],
-  ['Kostnad', '0 kr – alla är välkomna!'],
+  ['calendar', 'Dag', 'Varje tisdag'],
+  ['clock', 'Tid', 'Kl. 19.00'],
+  ['pin', 'Samling', 'Hyttans lekplats'],
+  ['shoe', 'Vi springer', 'Ca 5 km i lugnt tempo', 'förslagsvis 7.00–8.00 min/km'],
+  ['people', 'Kostnad', '0 kr – alla är välkomna!'],
 ]
 
 const fmt = new Intl.DateTimeFormat('sv-SE', {
@@ -77,10 +87,14 @@ export default function App() {
         <section>
           <h2>Varje tisdag</h2>
           <dl className="facts">
-            {facts.map(([k, v]) => (
+            {facts.map(([icon, k, v, note]) => (
               <div key={k}>
+                <svg viewBox="0 0 24 24" aria-hidden="true">{icons[icon]}</svg>
                 <dt>{k}</dt>
-                <dd>{v}</dd>
+                <dd>
+                  {v}
+                  {note && <small>{note}</small>}
+                </dd>
               </div>
             ))}
           </dl>

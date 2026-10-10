@@ -1,6 +1,7 @@
 // ponytail: Facebook har stängt API:t för gruppers event, så listan underhålls för hand i events.json.
 import allEvents from './events.json'
 
+const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Hyttans+lekplats+Kolm%C3%A5rden'
 const FB_URL = 'https://www.facebook.com/groups/1597119361540528'
 
 // Ikoner som på flygbladet (linjeikoner, 24×24).
@@ -15,7 +16,7 @@ const icons = {
 const facts = [
   ['calendar', 'Dag', 'Varje tisdag'],
   ['clock', 'Tid', 'Kl. 19.00'],
-  ['pin', 'Samling', 'Hyttans lekplats'],
+  ['pin', 'Samling', <a href={MAPS_URL} target="_blank" rel="noreferrer">Hyttans lekplats</a>],
   ['shoe', 'Vi springer', 'Ca 5 km i lugnt tempo', 'förslagsvis 7.00–8.00 min/km'],
   ['people', 'Kostnad', '0 kr – alla är välkomna!'],
 ]

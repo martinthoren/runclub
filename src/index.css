@@ -29,18 +29,25 @@ img { max-width: 100%; display: block; }
   isolation: isolate;
 }
 /* Bilden i ett eget lager så att bara den animeras, inte texten. */
-.hero::before,
-.hero::after { content: ''; position: absolute; inset: 0; z-index: -1; }
-.hero::before {
-  background: url('/hero.jpg') 70% center / cover;
-  transform-origin: 75% 60%;
+.hero-bg {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2;
+  transform-origin: 70% 60%;
   animation: kenburns 24s ease-in-out infinite alternate;
 }
-.hero::after { background: linear-gradient(90deg, #0f1f16d9 0%, #0f1f1680 45%, #0f1f1600 70%); }
+.hero::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #0f1f16d9 0%, #0f1f1680 45%, #0f1f1600 70%); }
 @keyframes kenburns {
   from { transform: scale(1) translateX(0); }
   to { transform: scale(1.12) translateX(-2%); }
 }
+
+/* Effekter i fotot */
+.hero-bg * { transform-box: fill-box; transform-origin: center; }
+.sun-glow { animation: glow 5s ease-in-out infinite alternate; }
+.sparkle { opacity: 0; animation: sparkle 2.6s ease-in-out infinite; }
+.clouds { opacity: .35; animation: drift 60s linear infinite alternate; }
+@keyframes glow { from { opacity: .55; transform: scale(.9); } to { opacity: 1; transform: scale(1.12); } }
+@keyframes sparkle { 0%, 100% { opacity: 0; transform: scaleX(.4); } 50% { opacity: .9; transform: scaleX(1.4); } }
+@keyframes drift { from { transform: translateX(-60px); } to { transform: translateX(80px); } }
 .hero h1 { font-weight: 800; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.1; max-width: 12ch; margin: 0 0 .75rem; }
 .hero .btn { background: var(--sun); color: var(--green); }
 
@@ -91,15 +98,16 @@ h2 { color: var(--green); font-weight: 800; font-size: 1.8rem; margin: 0 0 1.5re
 footer { background: var(--green); color: var(--cream); text-align: center; padding: 2rem 1rem; }
 footer a { color: var(--sun); }
 
+/* Mobil: fotot är mycket bredare än skärmen, så panorera i sidled från skärgården till löparen. */
 @media (max-width: 640px) {
-  .hero::before { animation-name: pan; animation-duration: 18s; }
+  .hero-bg { width: 420%; transform-origin: 0 50%; animation: pan 18s ease-in-out infinite alternate; }
+  .hero::after { background: linear-gradient(90deg, #0f1f16cc 0%, #0f1f1680 50%, #0f1f1626 80%, #0f1f1600 100%); }
 }
-/* Mobil: bilden är mycket bredare än skärmen, så panorera i sidled i stället för små zoomar. */
 @keyframes pan {
-  from { background-position: 60% center; transform: scale(1.05); }
-  to { background-position: 95% center; transform: scale(1.15); }
+  from { transform: translateX(-48%); }
+  to { transform: translateX(-74%); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero::before { animation: none; }
+  .hero-bg, .hero-bg * { animation: none !important; }
 }

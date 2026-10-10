@@ -23,15 +23,14 @@ img { max-width: 100%; display: block; }
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  color: #fff;
+  color: var(--green);
   background:
-    linear-gradient(90deg, #0f1f16cc 0%, #0f1f1666 45%, #0000 70%),
+    linear-gradient(90deg, #f6f1e6f2 0%, #f6f1e6b3 40%, #f6f1e600 68%),
     url('/hero.jpg') 70% center / cover;
 }
-.logo { width: clamp(120px, 22vw, 180px); border-radius: 50%; box-shadow: 0 6px 24px #0005; }
-.hero h1 { font-weight: 800; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.1; max-width: 12ch; margin: 1.5rem 0 .75rem; text-shadow: 0 2px 12px #0006; }
+.logo { width: clamp(160px, 28vw, 260px); }
+.hero h1 { font-weight: 800; font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.1; max-width: 12ch; margin: 1.5rem 0 .75rem; }
 .hero p { max-width: 28rem; margin: 0 0 1.75rem; font-size: 1.1rem; }
-.hero .btn { background: var(--sun); color: var(--green); }
 
 .btn {
   display: inline-block;

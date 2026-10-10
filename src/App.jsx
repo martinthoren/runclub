@@ -60,7 +60,7 @@ export default function App() {
   return (
     <>
       <header className="hero">
-        <img className="logo" src="logo.jpg" alt="Kolmården Run Club" />
+        <img className="logo" src="logo.png" alt="Kolmården Run Club" />
         <h1>Spring med oss i Kolmården</h1>
         <p>Ingen anmälan, ingen kostnad, inget tempo att leva upp till. Bara kom.</p>
         <a className="btn" href="#event">Se kommande löprundor</a>
